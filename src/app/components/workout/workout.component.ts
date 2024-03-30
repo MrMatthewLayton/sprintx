@@ -1,5 +1,4 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {Router} from "@angular/router";
 import {WorkoutService} from "../../services/workout.service";
 import {FormatTimePipe} from "../../pipes/format-time.pipe";
 
@@ -33,7 +32,7 @@ export class WorkoutComponent implements AfterViewInit {
     return `--progress: ${this.percentage};`;
   }
 
-  public constructor(public readonly service: WorkoutService, public readonly router: Router) {
+  public constructor(public readonly service: WorkoutService) {
   }
 
   public async ngAfterViewInit(): Promise<void> {
@@ -49,7 +48,7 @@ export class WorkoutComponent implements AfterViewInit {
       }
     }
 
-    setTimeout(() => this.router.navigateByUrl("/config"), 2000);
+    setTimeout(async () => await this.service.stop(), 2000);
   }
 
   private initializeArray(): Item[] {

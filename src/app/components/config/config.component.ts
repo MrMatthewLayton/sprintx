@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
   styleUrl: './config.component.scss'
 })
 export class ConfigComponent {
-  public constructor(public readonly service: WorkoutService, public readonly router: Router) {
+  public constructor(public readonly service: WorkoutService) {
   }
 
   protected readonly WorkoutService = WorkoutService;
