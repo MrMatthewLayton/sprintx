@@ -1,0 +1,59 @@
+<h1 class="display-1 text-secondary text-center">Your Workout</h1>
+<h2 class="text-secondary text-center mt-5">Number of Sprints</h2>
+<div class="d-flex flex-row justify-content-between sprint-count mt-4 px-4">
+  <div *ngFor="let item of WorkoutService.SPRINTS">
+    <input type="radio" class="btn-check" [name]="'sprints' + item" [id]="'sprints' + item"
+           [checked]="service.sprints == item"
+           (click)="service.sprints = item">
+    <label class="btn btn-outline-secondary" [for]="'sprints' + item">{{ item }}</label>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3 pt-5 d-flex flex-column align-items-center">
+    <h2 class="text-warning mb-4">Warm Up</h2>
+    <div class="input-group input-group-lg mb-3">
+      <button class="btn btn-warning" type="button" (click)="service.warmup = service.warmup - 15">-</button>
+      <div class="border border-warning text-warning flex-fill d-flex justify-content-center align-items-center px-3">
+        <span class="time">{{ service.warmup | formatTime }}</span>
+      </div>
+      <button class="btn btn-warning" type="button" (click)="service.warmup = service.warmup + 15">+</button>
+    </div>
+  </div>
+  <div class="col-3 pt-5 d-flex flex-column align-items-center">
+    <h2 class="text-danger mb-4">Sprint</h2>
+    <div class="input-group input-group-lg mb-3">
+      <button class="btn btn-danger" type="button" (click)="service.sprint = service.sprint - 15"> -</button>
+      <div class="border border-danger text-danger flex-fill d-flex justify-content-center align-items-center px-3">
+        <span class="time">{{ service.sprint | formatTime }}</span>
+      </div>
+      <button class="btn btn-danger" type="button" (click)="service.sprint = service.sprint + 15"> +</button>
+    </div>
+  </div>
+  <div class="col-3 pt-5 d-flex flex-column align-items-center">
+    <h2 class="text-success mb-4">Rest</h2>
+    <div class="input-group input-group-lg mb-3">
+      <button class="btn btn-success" type="button" (click)="service.rest = service.rest - 15">-</button>
+      <div class="border border-success text-success flex-fill d-flex justify-content-center align-items-center px-3">
+        <span class="time">{{ service.rest | formatTime }}</span>
+      </div>
+      <button class="btn btn-success" type="button" (click)="service.rest = service.rest + 15">+</button>
+    </div>
+  </div>
+  <div class="col-3 pt-5 d-flex flex-column align-items-center">
+    <h2 class="text-primary mb-4">Cool Down</h2>
+    <div class="input-group input-group-lg mb-3">
+      <button class="btn btn-primary" type="button" (click)="service.cooldown = service.cooldown - 15">-</button>
+      <div class="border border-primary text-primary flex-fill d-flex justify-content-center align-items-center px-3">
+        <span class="time">{{ service.cooldown | formatTime }}</span>
+      </div>
+      <button class="btn btn-primary" type="button" (click)="service.cooldown = service.cooldown + 15">+</button>
+    </div>
+  </div>
+</div>
+<div class="row pt-2">
+  <div class="col-12 text-center mt-5">
+    <button class="btn btn-lg btn-secondary btn-start px-5" type="button"
+            (click)="router.navigateByUrl('/workout')"> START
+    </button>
+  </div>
+</div>

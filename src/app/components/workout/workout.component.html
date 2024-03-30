@@ -1,0 +1,13 @@
+<div class="rounded-4 p-5 d-flex flex-column align-items-center" [class]="theme">
+  <h1 class="text-white">{{ text }}</h1>
+  <div class="progress-circle mt-5" [style]="progress">
+    <span class="progress-text">{{ remainingSeconds | formatTime }}</span>
+  </div>
+</div>
+<div class="row pt-4">
+  <div class="col-12 text-center mt-3">
+    <button class="btn btn-lg btn-secondary btn-finish px-5" type="button"
+            (click)="router.navigateByUrl('/config')"> FINISH
+    </button>
+  </div>
+</div>

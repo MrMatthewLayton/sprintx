@@ -1,0 +1,48 @@
+.progress-circle {
+  --progress: 50; /* Default progress, can be dynamically set inline */
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif; /* Ensure the font is consistent */
+}
+
+.progress-circle::before {
+  content: '';
+  position: absolute;
+  top: 64px; /* Positioning to create the white center circle */
+  left: 64px;
+  right: 64px;
+  bottom: 64px;
+  background-color: white; /* Center circle color */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.progress-circle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image: conic-gradient(rgba(255, 255, 255, 0.3) calc(var(--progress) * 3.6deg), transparent 0deg);
+  z-index: 0;
+}
+
+.progress-text {
+  position: absolute;
+  z-index: 2;
+  font-size: 2rem;
+  color: black;
+}
+
+.btn-finish {
+  font-size: 3rem;
+  font-weight: 300;
+}
